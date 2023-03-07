@@ -4,12 +4,8 @@ import UsersController from '../controllers/UsersController';
 
 const router = Router();
 
-// GET /status => AppController.getStatus
-router.get('/status', AppController.getStatus);
-
-// GET /stats => AppController.getStats
-router.get('/stats', AppController.getStats);
-
+router.get('/status', ((request, response) => AppController.getStatus(request, response)));
+router.get('/stats', ((request, response) => AppController.getStats(request, response)));
 router.post('/users', ((request, response) => UsersController.postNew(request, response)));
 
 module.exports = router;
