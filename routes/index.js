@@ -6,12 +6,17 @@ import FilesController from '../controllers/FilesController';
 
 const router = Router();
 
-router.get('/status', ((request, response) => AppController.getStatus(request, response)));
-router.get('/stats', ((request, response) => AppController.getStats(request, response)));
-router.post('/users', ((request, response) => UsersController.postNew(request, response)));
-router.get('/connect', ((request, response) => AuthController.getConnect(request, response)));
-router.get('/disconnect', ((request, response) => AuthController.getDisconnect(request, response)));
-router.get('/users/me', ((request, response) => UsersController.getMe(request, response)));
+router.get('/status', AppController.getStatus);
+
+router.get('/stats', AppController.getStats);
+
+router.post('/users', UsersController.postNew);
+
+router.get('/connect', AuthController.getConnect);
+
+router.get('/disconnect', AuthController.getDisconnect);
+
+router.get('/users/me', UsersController.getMe);
 
 router.post('/files', FilesController.postUpload);
 
